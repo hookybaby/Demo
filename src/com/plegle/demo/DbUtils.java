@@ -17,6 +17,7 @@ public class DbUtils {
 	}
 
 	public void setPassword(String password) {
+		System.out.println("bingo");
 		this.password = password;
 	}
 }
