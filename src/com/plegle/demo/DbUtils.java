@@ -17,6 +17,7 @@ public class DbUtils {
 	 * @param hex
 	 * @return
 	 */
+	
 	public static byte[] hexStringToByte(String hex) {
 		int len = (hex.length() / 2);
 		byte[] result = new byte[len];
