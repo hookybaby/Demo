@@ -11,13 +11,6 @@ import java.security.NoSuchAlgorithmException;
 
 public class DbUtils {
 
-	/**
-	 * ��16�����ַ���ת�����ֽ�����
-	 * 
-	 * @param hex
-	 * @return
-	 */
-	
 	public static byte[] hexStringToByte(String hex) {
 		int len = (hex.length() / 2);
 		byte[] result = new byte[len];
@@ -34,13 +27,6 @@ public class DbUtils {
 		return b;
 	}
 
-	/** */
-	/**
-	 * ���ֽ�����ת����16�����ַ���
-	 * 
-	 * @param bArray
-	 * @return
-	 */
 	public static final String bytesToHexString(byte[] bArray) {
 		StringBuffer sb = new StringBuffer(bArray.length);
 		String sTemp;
@@ -53,15 +39,6 @@ public class DbUtils {
 		return sb.toString();
 	}
 
-	/** */
-	/**
-	 * ���ֽ�����ת��Ϊ����
-	 * 
-	 * @param bytes
-	 * @return
-	 * @throws IOException
-	 * @throws ClassNotFoundException
-	 */
 	public static final Object bytesToObject(byte[] bytes) throws IOException,
 			ClassNotFoundException {
 		ByteArrayInputStream in = new ByteArrayInputStream(bytes);
@@ -71,14 +48,6 @@ public class DbUtils {
 		return o;
 	}
 
-	/** */
-	/**
-	 * �ѿ����л�����ת�����ֽ�����
-	 * 
-	 * @param s
-	 * @return
-	 * @throws IOException
-	 */
 	public static final byte[] objectToBytes(Serializable s) throws IOException {
 		ByteArrayOutputStream out = new ByteArrayOutputStream();
 		ObjectOutputStream ot = new ObjectOutputStream(out);
@@ -98,12 +67,7 @@ public class DbUtils {
 		return bytesToObject(hexStringToByte(hex));
 	}
 
-	/** */
-	/**
-	 * @��������: BCD��תΪ10���ƴ�(����������)
-	 * @��������: BCD��
-	 * @��������: 10���ƴ�
-	 */
+
 	public static String bcd2Str(byte[] bytes) {
 		StringBuffer temp = new StringBuffer(bytes.length * 2);
 
@@ -115,12 +79,7 @@ public class DbUtils {
 				.toString().substring(1) : temp.toString();
 	}
 
-	/** */
-	/**
-	 * @��������: 10���ƴ�תΪBCD��
-	 * @��������: 10���ƴ�
-	 * @��������: BCD��
-	 */
+
 	public static byte[] str2Bcd(String asc) {
 		int len = asc.length();
 		int mod = len % 2;
@@ -163,12 +122,7 @@ public class DbUtils {
 		return bbt;
 	}
 
-	/** */
-	/**
-	 * @��������: BCD��תASC��
-	 * @��������: BCD��
-	 * @��������: ASC��
-	 */
+
 //	public static String BCD2ASC(byte[] bytes) {
 //		StringBuffer temp = new StringBuffer(bytes.length * 2);
 //
@@ -180,35 +134,17 @@ public class DbUtils {
 //		return temp.toString();
 //	}
 
-	/** */
-	/**
-	 * MD5�����ַ��������ؼ��ܺ���16�����ַ���
-	 * 
-	 * @param origin
-	 * @return
-	 */
+
 	public static String MD5EncodeToHex(String origin) {
 		return bytesToHexString(MD5Encode(origin));
 	}
 
-	/** */
-	/**
-	 * MD5�����ַ��������ؼ��ܺ����ֽ�����
-	 * 
-	 * @param origin
-	 * @return
-	 */
+
 	public static byte[] MD5Encode(String origin) {
 		return MD5Encode(origin.getBytes());
 	}
 
-	/** */
-	/**
-	 * MD5�����ֽ����飬���ؼ��ܺ����ֽ�����
-	 * 
-	 * @param bytes
-	 * @return
-	 */
+
 	public static byte[] MD5Encode(byte[] bytes){
 	MessageDigest md=null;
 	try {
